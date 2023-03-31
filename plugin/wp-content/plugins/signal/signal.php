@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Signal
-Plugin URI: https://github.com/pluginsWordpress/Signal/blob/main/signal.php
+Plugin URI: https://github.com/abderrahmaneelhamel/pluginWordpress/blob/master/wp-content/plugins/signal/signal.php
 Description: Plugin de signal personnalisé pour WordPress
 Version: 1.0
-Author: Marouane
-Author URI: https://github.com/marouane216
+Author: abderrahmane elhamel
+Author URI: https://github.com/abderrahmaneelhamel
 */
 // Fonction d'activation du plugin
 function mon_plugin_activation()
@@ -91,7 +91,7 @@ function Signal_callback()
         }
 
         .Submit {
-            background-color: #0d6efd;
+            background-color: green;
             color: black;
             font-size: 1rem;
             width: 6rem;
@@ -103,17 +103,17 @@ function Signal_callback()
         }
 
         .Submit:hover {
-            color: aliceblue;
+            color: greenyellow;
         }
     </style>
     <form class="form" id="form">
         <div>
             <input type="radio" name="nom" id="nom">
-            <label class="labelForm" for="nom">nom:</label>
+            <label class="labelForm" for="nom">name:</label>
         </div>
         <div>
             <input type="radio" name="prenom" id="prenom">
-            <label class="labelForm" for="prenom">prenom:</label>
+            <label class="labelForm" for="prenom">family name:</label>
         </div>
         <div>
             <input type="radio" name="email" id="email">
@@ -121,15 +121,15 @@ function Signal_callback()
         </div>
         <div>
             <input type="radio" name="type_signal" id="type_signal">
-            <label class="labelForm" for="type_signal">le type de signal:</label>
+            <label class="labelForm" for="type_signal">signal type:</label>
         </div>
         <div>
             <input type="radio" name="raison_signal" id="raison_signal">
-            <label class="labelForm" for="raison_signal">le raison de votre signal:</label>
+            <label class="labelForm" for="raison_signal">the raison for the signal:</label>
         </div>
         <div>
             <input type="radio" name="commentaire" id="commentaire">
-            <label class="labelForm" for="commentaire">un commentaire:</label>
+            <label class="labelForm" for="commentaire">comment:</label>
         </div>
         <div>
             <input class="Submit" type="submit" value="Save">
@@ -206,7 +206,7 @@ function Signal_callback()
                                     ${commentaireInput}
                                     <div>
                                         <input type="hidden" name="action" value="mon_plugin_register">
-                                        <input class="Submit" type="submit" value="Envoyer">
+                                        <input class="Submit" type="submit" value="send">
                                     </div>
                                 </form>`
             localStorage.setItem("formSelected",formSelected)
@@ -219,7 +219,7 @@ function mon_plugin_shortcode_signal()
     ob_start();
     ?>
     <style>
-        p form {
+        div form {
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -227,14 +227,14 @@ function mon_plugin_shortcode_signal()
             margin: 0 25%;
         }
 
-        p form div {
+        div form div {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
         }
 
         .Submit {
-            background-color: #0d6efd;
+            background-color: green;
             color: black;
             font-size: 1rem;
             width: 6rem;
@@ -245,10 +245,10 @@ function mon_plugin_shortcode_signal()
             cursor: pointer;
         }
         .Submit:hover{
-            color: aliceblue;
+            color: greenyellow;
         }
     </style>
-    <p id="p"></p>
+    <div id="p"></div>
     <script>
         var p = document.getElementById('p')
         var formSelected = localStorage.getItem("formSelected")
@@ -314,7 +314,7 @@ function affiche_Signal_callback()
     global $wpdb;
     $table_name = $wpdb->prefix . 'signal';
 
-    $results = $wpdb->get_results( "SELECT * FROM $table_name");
+    $results = $wpdb->get_results("SELECT * FROM $table_name");
     ?>
         <table>
             <tr>
